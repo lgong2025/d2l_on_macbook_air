@@ -70,11 +70,11 @@ def set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend):
     axes.set_xlim(xlim),     axes.set_ylim(ylim)
     if legend:
         axes.legend(legend)
-    axes.grid()
+    axes.grid(True)
 
 def plot(X, Y=None, xlabel=None, ylabel=None, legend=[], xlim=None,
          ylim=None, xscale='linear', yscale='linear',
-         fmts=('-', 'm--', 'g-.', 'r:'), figsize=(3.5, 2.5), axes=None):
+         fmts=('-', 'm--', 'g-.', 'r:'), figsize=(12, 9.6), axes=None):
     """Plot data points.
 
     Defined in :numref:`sec_calculus`"""
@@ -98,6 +98,7 @@ def plot(X, Y=None, xlabel=None, ylabel=None, legend=[], xlim=None,
     for x, y, fmt in zip(X, Y, fmts):
         axes.plot(x,y,fmt) if len(x) else axes.plot(y,fmt)
     set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+    d2l.plt.grid(True)
 
 def add_to_class(Class):
     """Register functions as methods in created class.
